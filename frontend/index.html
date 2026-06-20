@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Kel Val Claude — Digital HQ</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ANNOUNCEMENT BANNER (hidden by default, shown by backend) -->
+  <div class="announce-banner" id="announceBanner" style="display:none">
+    <span id="announceText"></span>
+    <button onclick="document.getElementById('announceBanner').style.display='none'">✕</button>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="logo">
+      <span class="logo-text">KEL <span class="logo-accent">&lt;/&gt;</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#availability">Availability</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#availability" class="nav-status" id="navStatus">
+        <span class="status-dot" id="navStatusDot"></span>
+        <span id="navStatusText">Available</span>
+      </a>
+      <a href="#contact" class="btn btn-gold">Book Now</a>
+    </div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#availability">Availability</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-gold" style="text-align:center;">Book Now</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-verified">
+          <div class="verified-badge"><span class="verified-check">✓</span></div>
+          <span>Verified Developer · Since 2026</span>
+        </div>
+        <h1 class="hero-name">
+          <span class="name-line">KEL VAL</span>
+          <span class="name-line gold-line">CLAUDE</span>
+        </h1>
+        <div class="hero-titles">
+          <span class="title-tag">Developer</span>
+          <span class="title-div">·</span>
+          <span class="title-tag">System Architect</span>
+          <span class="title-div">·</span>
+          <span class="title-tag">Digital Builder</span>
+          <span class="title-div">·</span>
+          <span class="title-tag">Founder of VALCORE &lt;/&gt;</span>
+        </div>
+        <p class="hero-desc" id="heroDesc">Building Websites, Automation Systems, Platforms, and Digital Experiences. I create scalable digital solutions — from business websites and automation tools to platform ecosystems.</p>
+        <div class="hero-btns">
+          <a href="#portfolio" class="btn btn-gold btn-lg">View Portfolio</a>
+          <a href="#availability" class="btn btn-outline btn-lg">Book Appointment</a>
+        </div>
+        <div class="hero-resume">
+          <a href="assets/resume.pdf" class="resume-link" download>⬇ Download Resume</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="profile-card">
+          <div class="profile-card-header">
+            <!-- PROFILE PHOTO — big centered photo -->
+            <div class="profile-photo-wrap">
+              <img src="assets/logo.png" alt="Kel" class="profile-photo-big" id="profilePhoto"
+                   onerror="this.style.display='none';document.getElementById('profileInitials').style.display='flex'" />
+              <div class="profile-avatar-fallback" id="profileInitials" style="display:none">KV</div>
+              <div class="profile-verified-stamp">✓</div>
+            </div>
+            <div class="profile-name-block">
+              <strong id="profileName">Kel Val Claude</strong>
+              <span id="profileHandle">@kel_val_claude</span>
+              <div class="profile-titles-mini" id="profileTitlesMini">
+                <span>Developer</span><span class="dot">·</span>
+                <span>System Architect</span><span class="dot">·</span>
+                <span>Digital Builder</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-stats">
+            <div class="profile-stat">
+              <span class="ps-num" id="stat-projects">0</span><span class="ps-suf">+</span>
+              <span class="ps-label">Projects Built</span>
+            </div>
+            <div class="profile-stat">
+              <span class="ps-num" id="stat-partners">0</span>
+              <span class="ps-label">Partnerships</span>
+            </div>
+            <div class="profile-stat">
+              <span class="ps-num" id="stat-deals">0</span><span class="ps-suf">+</span>
+              <span class="ps-label">Deals Closed</span>
+            </div>
+          </div>
+
+          <div class="profile-status" id="profileStatusBar">
+            <span class="pstatus-dot" id="pstatusDot"></span>
+            <strong id="pstatusText">Available</strong>
+            <span class="pstatus-label" id="pstatusLabel">Open for new projects</span>
+          </div>
+
+          <div class="profile-focus">
+            <span class="focus-label">Currently Building</span>
+            <div class="focus-tags" id="focusTags">
+              <span>TIMELY AI</span>
+              <span>SILENCE API</span>
+              <span>HQ System</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VERIFICATION ========== -->
+  <section class="verification">
+    <div class="verify-inner">
+      <div class="verify-badges">
+        <div class="v-badge gold-badge">✓ Verified Developer</div>
+        <div class="v-badge">🤝 Partner</div>
+        <div class="v-badge">⚙ System Architect</div>
+      </div>
+      <div class="verify-divider"></div>
+      <div class="verify-partners">
+        <span class="vp-label">Partnered With</span>
+        <div class="vp-logos" id="verifyPartners">
+          <div class="vp-logo">SILENCE <span>&lt;/&gt;</span> SYS</div>
+          <div class="vp-logo">SILENCE <span>//</span> FED</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 3 · ABOUT</div>
+      <h2 class="section-title">About <span class="gold">Me</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p id="aboutText1">I design and build websites, automation systems, Telegram platforms, AI solutions, and management tools. My focus is creating <span class="gold">digital ecosystems</span> rather than individual products.</p>
+          <p id="aboutText2">Every system I build is designed to scale, connect, and evolve — from a single landing page to a full multi-platform digital infrastructure.</p>
+          <div class="about-tags">
+            <span>🌐 Web Systems</span><span>🤖 AI Solutions</span>
+            <span>⚙ Automation</span><span>📱 Telegram Dev</span>
+            <span>🧠 Platform Engineering</span>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="ac-item"><span class="ac-icon">📍</span><div><strong>Location</strong><p id="aboutLocation">Nigeria</p></div></div>
+          <div class="ac-item"><span class="ac-icon">💼</span><div><strong>Experience</strong><p id="aboutExperience">2+ Years</p></div></div>
+          <div class="ac-item"><span class="ac-icon">🌐</span><div><strong>Languages</strong><p id="aboutLanguages">English</p></div></div>
+          <div class="ac-item"><span class="ac-icon">⚡</span><div><strong>Focus</strong><p id="aboutFocus">Digital Ecosystems</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 4 · SERVICES</div>
+      <h2 class="section-title">What I <span class="gold">Build</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3>Website Development</h3>
+          <ul><li>Business Websites</li><li>Landing Pages</li><li>Portfolios</li><li>Online Stores</li></ul>
+          <div class="service-footer"><span class="service-time">⏱ 3–14 Days</span></div>
+        </div>
+        <div class="service-card featured-service">
+          <div class="service-glow"></div>
+          <div class="service-icon">🤖</div>
+          <h3>AI Solutions</h3>
+          <ul><li>AI Assistants</li><li>Automation Systems</li><li>Custom AI Tools</li><li>Integrations</li></ul>
+          <div class="service-footer"><span class="service-time">⏱ Custom Timeline</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Platform Engineering</h3>
+          <ul><li>Dashboards</li><li>Management Systems</li><li>Admin Platforms</li><li>APIs</li></ul>
+          <div class="service-footer"><span class="service-time">⏱ 7–21 Days</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>Telegram Development</h3>
+          <ul><li>Bots & Automation</li><li>Subscription Systems</li><li>Communities</li><li>Payment Systems</li></ul>
+          <div class="service-footer"><span class="service-time">⏱ 2–10 Days</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TECH STACK ========== -->
+  <section class="techstack">
+    <div class="section-inner">
+      <div class="section-label">TECHNOLOGIES</div>
+      <h2 class="section-title">Engineering <span class="gold">Stack</span></h2>
+      <div class="skill-bars">
+        <div class="skill-bar"><div class="skill-info"><span>Frontend Systems</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85"></div></div></div>
+        <div class="skill-bar"><div class="skill-info"><span>Telegram Systems</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" data-width="95"></div></div></div>
+        <div class="skill-bar"><div class="skill-info"><span>Backend APIs</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-width="80"></div></div></div>
+        <div class="skill-bar"><div class="skill-info"><span>Automation</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
+        <div class="skill-bar"><div class="skill-info"><span>UI Design</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" data-width="75"></div></div></div>
+      </div>
+      <div class="tech-tags">
+        <span>Python</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+        <span>Flask</span><span>Telegram API</span><span>Git</span><span>Linux</span>
+        <span>SQLite</span><span>JSON APIs</span><span>Node.js</span><span>REST APIs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ACHIEVEMENTS ========== -->
+  <section class="achievements">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 5 · ACHIEVEMENTS</div>
+      <h2 class="section-title">By The <span class="gold">Numbers</span></h2>
+      <div class="achievements-grid">
+        <div class="ach-card"><span class="ach-num" id="ach-projects">0</span><span class="ach-suf">+</span><p>Projects Completed</p></div>
+        <div class="ach-card gold-card"><span class="ach-num" id="ach-deals">0</span><span class="ach-suf">+</span><p>Deals Closed</p></div>
+        <div class="ach-card"><span class="ach-num" id="ach-hours">0</span><span class="ach-suf">+</span><p>Hours Saved</p></div>
+        <div class="ach-card"><span class="ach-num" id="ach-systems">0</span><span class="ach-suf">+</span><p>Systems Built</p></div>
+        <div class="ach-card"><span class="ach-num" id="ach-bots">0</span><span class="ach-suf">+</span><p>Bots Created</p></div>
+        <div class="ach-card gold-card"><span class="ach-num" id="ach-tasks">0</span><span class="ach-suf">+</span><p>Automated Tasks</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section class="portfolio" id="portfolio">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 6 · PORTFOLIO</div>
+      <h2 class="section-title">Featured <span class="gold">Projects</span></h2>
+      <!-- DYNAMIC — injected by JS from /api/projects -->
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="port-loading">Loading projects...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FUTURE PROJECTS ========== -->
+  <section class="future-projects">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 7 · UPCOMING</div>
+      <h2 class="section-title">In <span class="gold">Development</span></h2>
+      <div class="future-grid">
+        <div class="future-card"><div class="future-status building">In Development</div><div class="future-icon">🧠</div><h3>SILENCE API</h3><p>Core intelligence API powering the SILENCE ecosystem — AI, automation, and data layer.</p></div>
+        <div class="future-card"><div class="future-status research">Research Phase</div><div class="future-icon">🛰</div><h3>SILENCE SYS</h3><p>Full system infrastructure for the SILENCE platform — routing, services, management.</p></div>
+        <div class="future-card"><div class="future-status planning">Planning</div><div class="future-icon">📦</div><h3>Future Platforms</h3><p>New digital platforms and tools currently in early-stage architectural planning.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section class="process">
+    <div class="section-inner">
+      <div class="section-label">HOW I WORK</div>
+      <h2 class="section-title">The <span class="gold">Process</span></h2>
+      <div class="process-flow">
+        <div class="process-step"><div class="ps-num-circle">01</div><div class="ps-content"><strong>Discovery</strong><p>Understanding your project goals, requirements, and vision.</p></div></div>
+        <div class="ps-connector">↓</div>
+        <div class="process-step"><div class="ps-num-circle">02</div><div class="ps-content"><strong>Planning</strong><p>Architecture, structure, and timeline defined clearly.</p></div></div>
+        <div class="ps-connector">↓</div>
+        <div class="process-step active-step"><div class="ps-num-circle gold-circle">03</div><div class="ps-content"><strong>Development</strong><p>Building the system with clean, scalable code.</p></div></div>
+        <div class="ps-connector">↓</div>
+        <div class="process-step"><div class="ps-num-circle">04</div><div class="ps-content"><strong>Testing</strong><p>Quality assurance and performance checks.</p></div></div>
+        <div class="ps-connector">↓</div>
+        <div class="process-step"><div class="ps-num-circle">05</div><div class="ps-content"><strong>Deployment</strong><p>Clean launch with all systems verified.</p></div></div>
+        <div class="ps-connector">↓</div>
+        <div class="process-step"><div class="ps-num-circle">06</div><div class="ps-content"><strong>Support</strong><p>Ongoing updates and improvements post-launch.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AVAILABILITY ========== -->
+  <section class="availability" id="availability">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 8 · APPOINTMENTS</div>
+      <h2 class="section-title">Appointment <span class="gold">Status</span></h2>
+      <div class="avail-card" id="availCard">
+        <div class="avail-indicator">
+          <div class="avail-dot" id="availDot"></div>
+          <span class="avail-mode" id="availMode">AVAILABLE MODE</span>
+        </div>
+        <div class="avail-status">
+          <strong id="availStatusText">Available For New Projects</strong>
+          <span id="availNextText"></span>
+        </div>
+        <div class="avail-slots">
+          <div class="slot-item"><span class="slot-name">Website Projects</span><span class="slot-status open">Available</span></div>
+          <div class="slot-item"><span class="slot-name">System Development</span><span class="slot-status limited">Limited Slots</span></div>
+          <div class="slot-item"><span class="slot-name">Consultations</span><span class="slot-status appt">By Appointment</span></div>
+        </div>
+        <div class="avail-updated" id="availUpdated">Last Updated · June 2026</div>
+      </div>
+      <!-- BOOK APPOINTMENT FORM -->
+      <div class="book-form-wrap">
+        <h3 class="tl-title">Send a <span class="gold">Request</span></h3>
+        <form class="book-form" id="bookForm" onsubmit="submitBooking(event)">
+          <div class="bf-row">
+            <div class="bf-group"><label>Your Name</label><input type="text" id="bf-name" placeholder="e.g. John Doe" required /></div>
+            <div class="bf-group"><label>WhatsApp / Telegram</label><input type="text" id="bf-contact" placeholder="+234..." required /></div>
+          </div>
+          <div class="bf-group">
+            <label>Service Needed</label>
+            <select id="bf-service">
+              <option>Website Development</option>
+              <option>AI Solutions</option>
+              <option>Platform Engineering</option>
+              <option>Telegram Development</option>
+              <option>Consultation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="bf-group"><label>Message / Details</label><textarea id="bf-message" rows="3" placeholder="Tell me about your project..."></textarea></div>
+          <button type="submit" class="btn btn-gold">Send Request 🚀</button>
+          <p class="bf-note" id="bfNote"></p>
+        </form>
+      </div>
+      <!-- Timeline -->
+      <div class="timeline-grid">
+        <h3 class="tl-title">Project <span class="gold">Timelines</span></h3>
+        <div class="tl-items">
+          <div class="tl-item"><span>Landing Page</span><div class="tl-bar-wrap"><div class="tl-fill" style="--w:20%"></div></div><span class="tl-days">1–3 Days</span></div>
+          <div class="tl-item"><span>Business Website</span><div class="tl-bar-wrap"><div class="tl-fill" style="--w:45%"></div></div><span class="tl-days">3–7 Days</span></div>
+          <div class="tl-item"><span>Store / E-Commerce</span><div class="tl-bar-wrap"><div class="tl-fill" style="--w:65%"></div></div><span class="tl-days">5–14 Days</span></div>
+          <div class="tl-item"><span>Automation System</span><div class="tl-bar-wrap"><div class="tl-fill gold-fill" style="--w:85%"></div></div><span class="tl-days">Custom</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARTNERSHIPS ========== -->
+  <section class="partnerships">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 9 · NETWORK</div>
+      <h2 class="section-title">Partnership <span class="gold">Network</span></h2>
+      <!-- DYNAMIC from /api/partners -->
+      <div class="partners-grid" id="partnersGrid">
+        <div class="port-loading">Loading partners...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REVIEWS ========== -->
+  <section class="reviews">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 10 · REVIEWS</div>
+      <div class="reviews-header">
+        <div class="rating-display">
+          <span class="rating-num" id="avgRating">4.9</span>
+          <div class="rating-stars">★★★★★</div>
+          <span class="rating-count" id="reviewCount">Based on 20+ projects</span>
+        </div>
+        <h2 class="section-title">Client <span class="gold">Reviews</span></h2>
+      </div>
+      <!-- DYNAMIC from /api/reviews -->
+      <div class="reviews-grid" id="reviewsGrid">
+        <div class="port-loading">Loading reviews...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LEAVE A RATING ========== -->
+  <section class="leave-rating">
+    <div class="section-inner">
+      <div class="section-label">RATE MY WORK</div>
+      <h2 class="section-title">Leave a <span class="gold">Rating</span></h2>
+      <div class="rating-form-wrap">
+        <div class="star-selector" id="starSelector">
+          <span class="star-btn" data-val="1">★</span>
+          <span class="star-btn" data-val="2">★</span>
+          <span class="star-btn" data-val="3">★</span>
+          <span class="star-btn" data-val="4">★</span>
+          <span class="star-btn" data-val="5">★</span>
+        </div>
+        <input type="hidden" id="ratingVal" value="0" />
+        <div class="rating-form-fields">
+          <input type="text" id="ratingName" placeholder="Your name" class="rating-input" />
+          <input type="text" id="ratingComment" placeholder="Short comment (optional)" class="rating-input" />
+          <button class="btn btn-gold" onclick="submitRating()">Submit Rating ★</button>
+        </div>
+        <p class="rating-note" id="ratingNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq" id="faq">
+    <div class="section-inner">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common <span class="gold">Questions</span></h2>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does a website take? <span class="faq-arrow">↓</span></button><div class="faq-a">Usually 2–14 days depending on complexity. Landing pages take 1–3 days, business websites 3–7 days, and full e-commerce or platform builds can take 7–21 days.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you build Telegram bots? <span class="faq-arrow">↓</span></button><div class="faq-a">Yes. I specialize in Telegram bots — from simple command bots to full subscription systems with payment integration and admin dashboards.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can you maintain existing projects? <span class="faq-arrow">↓</span></button><div class="faq-a">Yes. I offer maintenance for both projects I've built and existing systems. Reach out with details and we'll discuss a maintenance arrangement.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you offer support after delivery? <span class="faq-arrow">↓</span></button><div class="faq-a">Yes. Every project includes a support window post-delivery. Long-term support is available through a dedicated maintenance agreement.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is your payment process? <span class="faq-arrow">↓</span></button><div class="faq-a">Typically 50% upfront to begin work, 50% on delivery. For larger systems, milestone-based payments can be arranged. Contact me to discuss.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 11 · CONTACT HUB</div>
+      <h2 class="section-title">Get In <span class="gold">Touch</span></h2>
+      <p class="contact-sub">One click. Direct line. No forms — just instant connection.</p>
+      <!-- DYNAMIC from /api/settings contacts -->
+      <!-- DYNAMIC contact grid — JS builds from /api/settings, hides empty links -->
+      <div class="contact-grid" id="contactGrid">
+        <div class="contact-loading">Loading contact links...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ECOSYSTEM MAP ========== -->
+  <section class="ecosystem">
+    <div class="section-inner">
+      <div class="section-label">LEVEL 12 · ECOSYSTEM</div>
+      <h2 class="section-title">The <span class="gold">Ecosystem</span></h2>
+      <div class="eco-map">
+        <div class="eco-root"><div class="eco-node root-node">VALCORE &lt;/&gt;</div></div>
+        <div class="eco-branches">
+          <div class="eco-branch">
+            <div class="eco-node branch-node">Portfolio</div>
+            <div class="eco-children">
+              <div class="eco-node leaf-node">Crust Bakery</div>
+              <div class="eco-node leaf-node">Volt Electronics</div>
+              <div class="eco-node leaf-node">TIMELY AI</div>
+            </div>
+          </div>
+          <div class="eco-branch">
+            <div class="eco-node branch-node gold-node">Partnerships</div>
+            <div class="eco-children">
+              <div class="eco-node leaf-node">SILENCE &lt;/&gt; SYS</div>
+              <div class="eco-node leaf-node">SILENCE // FED</div>
+            </div>
+          </div>
+          <div class="eco-branch">
+            <div class="eco-node branch-node">Systems</div>
+            <div class="eco-children">
+              <div class="eco-node leaf-node building-node">SILENCE API</div>
+              <div class="eco-node leaf-node building-node">Command Center</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SYSTEM STATUS ========== -->
+  <section class="system-status">
+    <div class="section-inner">
+      <div class="section-label">LIVE SYSTEM STATUS</div>
+      <h2 class="section-title">System <span class="gold">Monitor</span></h2>
+      <div class="status-grid">
+        <div class="status-item"><span class="si-dot green-dot"></span><span>Portfolio HQ</span><span class="si-state online">Online</span></div>
+        <div class="status-item"><span class="si-dot green-dot"></span><span>Crust Bakery</span><span class="si-state online">Online</span></div>
+        <div class="status-item"><span class="si-dot green-dot"></span><span>Volt Electronics</span><span class="si-state online">Online</span></div>
+        <div class="status-item"><span class="si-dot green-dot"></span><span>TIMELY AI</span><span class="si-state online">Online</span></div>
+        <div class="status-item"><span class="si-dot yellow-dot"></span><span>SILENCE API</span><span class="si-state building">In Development</span></div>
+        <div class="status-item"><span class="si-dot yellow-dot"></span><span>SILENCE SYS</span><span class="si-state building">Research Phase</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DEVELOPER SIGNATURE ========== -->
+  <section class="signature">
+    <div class="sig-inner">
+      <span class="sig-label">Designed & Engineered by</span>
+      <h2 class="sig-name">VALCORE &lt;/&gt;</h2>
+      <p class="sig-sub">Building Digital Ecosystems.</p>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo footer-logo-text">KEL <span class="logo-accent">&lt;/&gt;</span></span>
+        <p>Kel Val Claude</p>
+        <small>Developer · System Architect · Digital Builder</small>
+      </div>
+      <div class="footer-partners">
+        <span>Partnered with</span>
+        <strong>SILENCE &lt;/&gt; SYS</strong>
+        <strong>SILENCE // FED</strong>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a><a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Kel Val Claude · All rights reserved</p>
+      <p class="powered">Powered by <span class="gold">SILENCE</span> &lt;/&gt;SYS</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
